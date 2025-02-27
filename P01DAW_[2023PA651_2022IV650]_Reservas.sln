@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01DAW_[2023PA651_2022IV650]_Reservas", "P01DAW_[2023PA651_2022IV650]_Reservas\P01DAW_[2023PA651_2022IV650]_Reservas.csproj", "{EFE3459C-AF51-4FD2-8B61-D1C4BD51454A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFE3459C-AF51-4FD2-8B61-D1C4BD51454A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE3459C-AF51-4FD2-8B61-D1C4BD51454A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE3459C-AF51-4FD2-8B61-D1C4BD51454A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE3459C-AF51-4FD2-8B61-D1C4BD51454A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD84F7BA-A4DD-4676-93E6-D7F517ECA61D}
+	EndGlobalSection
+EndGlobal
