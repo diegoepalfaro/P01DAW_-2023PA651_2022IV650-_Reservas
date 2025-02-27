@@ -1,11 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using P01DAW__2023PA651_2022IV650__Reservas.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ReservasContext>(options =>
+        options.UseSqlServer(
+            builder.Configuration.GetConnectionString("BibliotecaDbConnection")
+            )
+);
 
 var app = builder.Build();
 
