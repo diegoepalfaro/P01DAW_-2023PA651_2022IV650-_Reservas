@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using P01DAW__2023PA651_2022IV650__Reservas.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,14 @@ builder.Services.AddDbContext<ReservasContext>(options =>
             builder.Configuration.GetConnectionString("BibliotecaDbConnection")
             )
 );
+
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Reservas API", Version = "v1" });
+});
+
 
 var app = builder.Build();
 
