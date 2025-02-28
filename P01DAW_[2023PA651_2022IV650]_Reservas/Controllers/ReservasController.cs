@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using P01DAW__2023PA651_2022IV650__Reservas.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using P01DAW__2023PA651_2022IV650__Reservas.Models;
 
+namespace P01DAW_2023PA651_2022IV650_Reservas.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -17,11 +17,13 @@ using P01DAW__2023PA651_2022IV650__Reservas.Models;
             _context = context;
         }
 
+
         [HttpGet]
         public ActionResult<IEnumerable<Reservas>> GetReservas()
         {
             return _context.Reservas.ToList();
         }
+
 
         [HttpGet("{Id}")]
         public ActionResult<Reservas> GetReserva(int Id)
@@ -31,11 +33,28 @@ using P01DAW__2023PA651_2022IV650__Reservas.Models;
             {
                 return NotFound();
             }
-
             return reserva;
         }
 
+
+        [HttpGet("usuario/{usuarioId}")]
+        public ActionResult<IEnumerable<Reservas>> GetReservasPorUsuario(int usuarioId)
+        {
+            var reservas = _context.Reservas
+                                   .Where(r => r.UsuarioId == usuarioId)
+                                   .ToList();
+
+            if (reservas.Count == 0)
+            {
+                return NotFound("No hay reservas activas para este usuario.");
+            }
+
+            return Ok(reservas);
+        }
+
+
         [HttpPost]
+        public ActionResult<Reservas> CreateReserva([FromBody] Reservas reserva)
         {
             if (reserva == null)
             {
@@ -49,13 +68,19 @@ using P01DAW__2023PA651_2022IV650__Reservas.Models;
             return CreatedAtAction(nameof(GetReserva), new { Id = reserva.Id }, reserva);
         }
 
+
         [HttpPut("{Id}")]
+        public IActionResult UpdateReserva(int Id, [FromBody] Reservas reserva)
         {
             if (Id != reserva.Id)
             {
+                return BadRequest("El ID de la reserva no coincide.");
             }
 
-                {
+            var reservaExistente = _context.Reservas.Find(Id);
+            if (reservaExistente == null)
+            {
+                return NotFound("Reserva no encontrada.");
             }
 
 
@@ -69,9 +94,14 @@ using P01DAW__2023PA651_2022IV650__Reservas.Models;
             return NoContent();
         }
 
+
+        [HttpDelete("{id}")]
+        public IActionResult CancelarReserva(int id)
         {
+            var reserva = _context.Reservas.Find(id);
             if (reserva == null)
             {
+                return NotFound("Reserva no encontrada.");
             }
 
             _context.Reservas.Remove(reserva);
