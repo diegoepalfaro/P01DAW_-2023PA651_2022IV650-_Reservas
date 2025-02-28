@@ -14,10 +14,8 @@ namespace P01DAW__2023PA651_2022IV650__Reservas.Models
 
         public string Telefono { get; set; }
 
-        public int AdministradorId { get; set; }
+        public int Administrador { get; set; }
 
-        public Usuarios Administrador { get; set; }
-
-        public int TotalEspacios { get; set; }
+        public int NumeroEspacios { get; set; }
 
 }
