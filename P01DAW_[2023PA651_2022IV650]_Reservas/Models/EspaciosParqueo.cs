@@ -9,7 +9,7 @@ namespace P01DAW__2023PA651_2022IV650__Reservas.Models
         public int Id { get; set; }
         public int SucursalId { get; set; }
 
-        public Sucursal Sucursal { get; set; }
+        public Sucursales Sucursal { get; set; }
 
         public string NumeroEspacio { get; set; }
 

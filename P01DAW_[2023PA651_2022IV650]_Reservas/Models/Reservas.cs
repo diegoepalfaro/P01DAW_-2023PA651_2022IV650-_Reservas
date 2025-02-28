@@ -8,9 +8,9 @@ namespace P01DAW__2023PA651_2022IV650__Reservas.Models
         [Key]
         public int Id { get; set; }
         public int UsuarioId { get; set; }
-        public Usuario Usuario { get; set; }
+        public Usuarios Usuario { get; set; }
         public int EspacioParqueoId { get; set; }
-        public EspacioParqueo EspacioParqueo { get; set; }
+        public EspaciosParqueo EspacioParqueo { get; set; }
         public DateTime FechaReserva { get; set; }
 
         public TimeSpan HoraInicio { get; set; }
